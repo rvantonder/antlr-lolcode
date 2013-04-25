@@ -9,6 +9,9 @@ public interface SmallListener extends ParseTreeListener {
 	void enterDeclaration(SmallParser.DeclarationContext ctx);
 	void exitDeclaration(SmallParser.DeclarationContext ctx);
 
+	void enterLoopupdateop(SmallParser.LoopupdateopContext ctx);
+	void exitLoopupdateop(SmallParser.LoopupdateopContext ctx);
+
 	void enterBlock(SmallParser.BlockContext ctx);
 	void exitBlock(SmallParser.BlockContext ctx);
 
@@ -36,11 +39,20 @@ public interface SmallListener extends ParseTreeListener {
 	void enterIfthenelse(SmallParser.IfthenelseContext ctx);
 	void exitIfthenelse(SmallParser.IfthenelseContext ctx);
 
+	void enterLoopguard(SmallParser.LoopguardContext ctx);
+	void exitLoopguard(SmallParser.LoopguardContext ctx);
+
 	void enterFile(SmallParser.FileContext ctx);
 	void exitFile(SmallParser.FileContext ctx);
 
+	void enterLoop(SmallParser.LoopContext ctx);
+	void exitLoop(SmallParser.LoopContext ctx);
+
 	void enterExprlist(SmallParser.ExprlistContext ctx);
 	void exitExprlist(SmallParser.ExprlistContext ctx);
+
+	void enterLoopupdate(SmallParser.LoopupdateContext ctx);
+	void exitLoopupdate(SmallParser.LoopupdateContext ctx);
 
 	void enterIdentifier(SmallParser.IdentifierContext ctx);
 	void exitIdentifier(SmallParser.IdentifierContext ctx);

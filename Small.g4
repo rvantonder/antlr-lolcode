@@ -18,6 +18,7 @@ statement
   | assignment
   | declaration
   | ifthenelse
+  | loop
   ;
 
 print: 'VISIBLE' exprlist 'BANG'? NEWLINE ;
@@ -33,6 +34,14 @@ ifthenelse: 'O RLY?' NEWLINE 'YA RLY' NEWLINE block elseifcond* elsecond? 'OIC' 
 elseifcond: 'MEBBE' expr NEWLINE block ;
 
 elsecond: 'NO WAI' NEWLINE block ;
+
+loop: 'IM IN YR' identifier loopupdate? loopguard? NEWLINE block 'IM OUTTA YR' identifier NEWLINE ;
+
+loopupdate: loopupdateop 'YR' identifier ;
+
+loopupdateop: 'UPPIN' | 'NERFIN' ; // TODO there's more
+
+loopguard: ('TIL' | 'WILE') expr ;
 
 exprlist: expr (',' expr)* ;
 

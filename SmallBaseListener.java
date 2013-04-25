@@ -12,6 +12,9 @@ public class SmallBaseListener implements SmallListener {
 	@Override public void enterDeclaration(SmallParser.DeclarationContext ctx) { }
 	@Override public void exitDeclaration(SmallParser.DeclarationContext ctx) { }
 
+	@Override public void enterLoopupdateop(SmallParser.LoopupdateopContext ctx) { }
+	@Override public void exitLoopupdateop(SmallParser.LoopupdateopContext ctx) { }
+
 	@Override public void enterBlock(SmallParser.BlockContext ctx) { }
 	@Override public void exitBlock(SmallParser.BlockContext ctx) { }
 
@@ -39,11 +42,20 @@ public class SmallBaseListener implements SmallListener {
 	@Override public void enterIfthenelse(SmallParser.IfthenelseContext ctx) { }
 	@Override public void exitIfthenelse(SmallParser.IfthenelseContext ctx) { }
 
+	@Override public void enterLoopguard(SmallParser.LoopguardContext ctx) { }
+	@Override public void exitLoopguard(SmallParser.LoopguardContext ctx) { }
+
 	@Override public void enterFile(SmallParser.FileContext ctx) { }
 	@Override public void exitFile(SmallParser.FileContext ctx) { }
 
+	@Override public void enterLoop(SmallParser.LoopContext ctx) { }
+	@Override public void exitLoop(SmallParser.LoopContext ctx) { }
+
 	@Override public void enterExprlist(SmallParser.ExprlistContext ctx) { }
 	@Override public void exitExprlist(SmallParser.ExprlistContext ctx) { }
+
+	@Override public void enterLoopupdate(SmallParser.LoopupdateContext ctx) { }
+	@Override public void exitLoopupdate(SmallParser.LoopupdateContext ctx) { }
 
 	@Override public void enterIdentifier(SmallParser.IdentifierContext ctx) { }
 	@Override public void exitIdentifier(SmallParser.IdentifierContext ctx) { }
