@@ -9,7 +9,7 @@ block: statement* ;
 
 // TYPES
 
-identifier: ID ;
+identifier: ID | 'SRS' expr ;
 
 // STATEMENTS
 
@@ -19,6 +19,8 @@ statement
   | declaration
   | ifthenelse
   | loop
+  | input
+  | cast
   ;
 
 print: 'VISIBLE' exprlist 'BANG'? NEWLINE ;
@@ -27,7 +29,7 @@ assignment: identifier 'R' expr NEWLINE ;
 
 declaration: 'I HAS A' identifier init ;
 
-init: ('ITZ' expr | 'ITZ LIEK A' identifier) NEWLINE ;
+init: ('ITZ' expr | 'ITZ A' type | 'ITZ LIEK A' identifier) NEWLINE ;
 
 ifthenelse: 'O RLY?' NEWLINE 'YA RLY' NEWLINE block elseifcond* elsecond? 'OIC' NEWLINE ;
 
@@ -43,14 +45,20 @@ loopupdateop: 'UPPIN' | 'NERFIN' ; // TODO there's more
 
 loopguard: ('TIL' | 'WILE') expr ;
 
+input: 'GIMMEH' identifier NEWLINE ;
+
+cast: identifier 'IS NOW A' type NEWLINE ;
+
 exprlist: expr (',' expr)* ;
 
-expr returns [String value]
+expr
   : constant
   | identifier
   ;
 
 constant: BOOLEAN | INTEGER | STRING;
+
+type: 'NUMBR' | 'NUMBAR' | 'YARN' | 'TROOF' | 'NOOB' ;
 
 BOOLEAN : 'WIN' | 'FAIL' ;
 
@@ -63,8 +71,10 @@ INTEGER : [0-9]+ ;
 WS : [ \t\r]+ -> skip ;
 
 COMMENT
-  : 'BTW' .*? NEWLINE -> skip
-  ;
+  : 'BTW' .*? NEWLINE -> skip ;
+
+MULTICOMMENT
+  : 'OBTW' NEWLINE .*? 'TLDR' NEWLINE -> skip ;
 
 BANG: '!' ;
 
@@ -72,4 +82,4 @@ fragment QUOTE: '\"' ;
 
 STRING : QUOTE .*? QUOTE { setText(getText().substring(1, getText().length()-1)); };
 
-NEWLINE : '\n' ;
+NEWLINE : '\n' | ', ' ;
