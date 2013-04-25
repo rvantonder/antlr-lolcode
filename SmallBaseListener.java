@@ -33,9 +33,6 @@ public class SmallBaseListener implements SmallListener {
 	@Override public void enterExprlist(SmallParser.ExprlistContext ctx) { }
 	@Override public void exitExprlist(SmallParser.ExprlistContext ctx) { }
 
-	@Override public void enterType(SmallParser.TypeContext ctx) { }
-	@Override public void exitType(SmallParser.TypeContext ctx) { }
-
 	@Override public void enterIdentifier(SmallParser.IdentifierContext ctx) { }
 	@Override public void exitIdentifier(SmallParser.IdentifierContext ctx) { }
 

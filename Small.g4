@@ -3,16 +3,13 @@ grammar Small;
 // file: (functionalDecl | varDecl)+ ;
 
 // PROGRAM STRUCTURE
-file: 'HAI\n' block 'KTHXBYE\n' EOF ; 
+file: 'HAI' NEWLINE block 'KTHXBYE' NEWLINE EOF ; 
 
 block: statement* ;
 
 // TYPES
 
-identifier: ID | 'SRS' expr;
-
-type: 'YARN' | 'NUMBR' | 'NUMBAR' | 'TROOF' 
-  | 'BUKKIT' | 'NOOB' ;
+identifier: ID ;
 
 // STATEMENTS
 
@@ -22,13 +19,13 @@ statement
   | declaration
   ;
 
-print: 'VISIBLE' exprlist 'BANG'? '\n' ;
+print: 'VISIBLE' exprlist 'BANG'? NEWLINE ;
 
-assignment: identifier 'R' expr '\n' ;
+assignment: identifier 'R' expr NEWLINE ;
 
 declaration: 'I HAS A' identifier init ;
 
-init: ('ITZ' expr | 'ITZ LIEK A' identifier) '\n' ;
+init: ('ITZ' expr | 'ITZ LIEK A' identifier) NEWLINE ;
 
 exprlist: expr (',' expr)* ;
 
@@ -47,12 +44,14 @@ LETTER : [a-zA-Z] ;
 
 INTEGER : [0-9]+ ;
 
-WS : [ \t\n\r]+ -> skip ;
+WS : [ \t\r]+ -> skip ;
 
 COMMENT
-  : 'BTW' .*? '\n' -> skip
+  : 'BTW' .*? NEWLINE -> skip
   ;
 
 fragment QUOTE: '\"' ;
 
 STRING : QUOTE .*? QUOTE { setText(getText().substring(1, getText().length()-1)); };
+
+NEWLINE : '\n' ;

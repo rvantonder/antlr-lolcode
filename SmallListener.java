@@ -30,9 +30,6 @@ public interface SmallListener extends ParseTreeListener {
 	void enterExprlist(SmallParser.ExprlistContext ctx);
 	void exitExprlist(SmallParser.ExprlistContext ctx);
 
-	void enterType(SmallParser.TypeContext ctx);
-	void exitType(SmallParser.TypeContext ctx);
-
 	void enterIdentifier(SmallParser.IdentifierContext ctx);
 	void exitIdentifier(SmallParser.IdentifierContext ctx);
 
