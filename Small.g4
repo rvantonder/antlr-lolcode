@@ -17,6 +17,7 @@ statement
   : print
   | assignment
   | declaration
+  | ifthenelse
   ;
 
 print: 'VISIBLE' exprlist 'BANG'? NEWLINE ;
@@ -27,9 +28,15 @@ declaration: 'I HAS A' identifier init ;
 
 init: ('ITZ' expr | 'ITZ LIEK A' identifier) NEWLINE ;
 
+ifthenelse: 'O RLY?' NEWLINE 'YA RLY' NEWLINE block elseifcond* elsecond? 'OIC' NEWLINE ;
+
+elseifcond: 'MEBBE' expr NEWLINE block ;
+
+elsecond: 'NO WAI' NEWLINE block ;
+
 exprlist: expr (',' expr)* ;
 
-expr returns [int value]
+expr returns [String value]
   : constant
   | identifier
   ;
@@ -49,6 +56,8 @@ WS : [ \t\r]+ -> skip ;
 COMMENT
   : 'BTW' .*? NEWLINE -> skip
   ;
+
+BANG: '!' ;
 
 fragment QUOTE: '\"' ;
 
