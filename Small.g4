@@ -3,7 +3,7 @@ grammar Small;
 // file: (functionalDecl | varDecl)+ ;
 
 // PROGRAM STRUCTURE
-file: 'HAI' NEWLINE block 'KTHXBYE' NEWLINE EOF ; 
+file: 'HAI' ('1.0' | '1.1' | '1.2') NEWLINE block 'KTHXBYE' NEWLINE EOF ; 
 
 block: statement* ;
 
@@ -53,7 +53,7 @@ cast: identifier 'IS NOW A' type NEWLINE ;
 
 exprlist: expr (',' expr)* ;
 
-emptyline: NEWLINE -> skip ;
+emptyline: NEWLINE ;
 
 expr
   : constant
@@ -108,13 +108,13 @@ fragment LETTER : [a-zA-Z] ;
 
 INTEGER : [0-9]+ ;
 
-WS : [ \t\r]+ -> skip ;
+WS : [ \t\r]+ -> channel(HIDDEN) ;
 
 COMMENT
   : 'BTW' .*? NEWLINE -> skip ;
 
 MULTICOMMENT
-  : 'OBTW' NEWLINE .*? 'TLDR' NEWLINE -> skip ;
+  : 'OBTW' .*? 'TLDR' NEWLINE -> skip ;
 
 BANG: '!' ;
 

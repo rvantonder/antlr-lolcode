@@ -9,14 +9,14 @@ public interface SmallListener extends ParseTreeListener {
 	void enterNaryoptype(SmallParser.NaryoptypeContext ctx);
 	void exitNaryoptype(SmallParser.NaryoptypeContext ctx);
 
+	void enterNaryop(SmallParser.NaryopContext ctx);
+	void exitNaryop(SmallParser.NaryopContext ctx);
+
 	void enterBlock(SmallParser.BlockContext ctx);
 	void exitBlock(SmallParser.BlockContext ctx);
 
 	void enterBinaryoptype(SmallParser.BinaryoptypeContext ctx);
 	void exitBinaryoptype(SmallParser.BinaryoptypeContext ctx);
-
-	void enterNaryop(SmallParser.NaryopContext ctx);
-	void exitNaryop(SmallParser.NaryopContext ctx);
 
 	void enterExpr(SmallParser.ExprContext ctx);
 	void exitExpr(SmallParser.ExprContext ctx);
@@ -41,6 +41,9 @@ public interface SmallListener extends ParseTreeListener {
 
 	void enterExprlist(SmallParser.ExprlistContext ctx);
 	void exitExprlist(SmallParser.ExprlistContext ctx);
+
+	void enterEmptyline(SmallParser.EmptylineContext ctx);
+	void exitEmptyline(SmallParser.EmptylineContext ctx);
 
 	void enterOpexpr(SmallParser.OpexprContext ctx);
 	void exitOpexpr(SmallParser.OpexprContext ctx);

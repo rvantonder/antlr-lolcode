@@ -12,14 +12,14 @@ public class SmallBaseListener implements SmallListener {
 	@Override public void enterNaryoptype(SmallParser.NaryoptypeContext ctx) { }
 	@Override public void exitNaryoptype(SmallParser.NaryoptypeContext ctx) { }
 
+	@Override public void enterNaryop(SmallParser.NaryopContext ctx) { }
+	@Override public void exitNaryop(SmallParser.NaryopContext ctx) { }
+
 	@Override public void enterBlock(SmallParser.BlockContext ctx) { }
 	@Override public void exitBlock(SmallParser.BlockContext ctx) { }
 
 	@Override public void enterBinaryoptype(SmallParser.BinaryoptypeContext ctx) { }
 	@Override public void exitBinaryoptype(SmallParser.BinaryoptypeContext ctx) { }
-
-	@Override public void enterNaryop(SmallParser.NaryopContext ctx) { }
-	@Override public void exitNaryop(SmallParser.NaryopContext ctx) { }
 
 	@Override public void enterExpr(SmallParser.ExprContext ctx) { }
 	@Override public void exitExpr(SmallParser.ExprContext ctx) { }
@@ -44,6 +44,9 @@ public class SmallBaseListener implements SmallListener {
 
 	@Override public void enterExprlist(SmallParser.ExprlistContext ctx) { }
 	@Override public void exitExprlist(SmallParser.ExprlistContext ctx) { }
+
+	@Override public void enterEmptyline(SmallParser.EmptylineContext ctx) { }
+	@Override public void exitEmptyline(SmallParser.EmptylineContext ctx) { }
 
 	@Override public void enterOpexpr(SmallParser.OpexprContext ctx) { }
 	@Override public void exitOpexpr(SmallParser.OpexprContext ctx) { }
