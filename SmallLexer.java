@@ -86,7 +86,7 @@ public class SmallLexer extends Lexer {
 	}
 	private void MULTICOMMENT_action(RuleContext _localctx, int actionIndex) {
 		switch (actionIndex) {
-		case 3: skip();  break;
+		case 3: _channel = HIDDEN;  break;
 		}
 	}
 	private void WS_action(RuleContext _localctx, int actionIndex) {

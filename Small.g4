@@ -29,9 +29,9 @@ print: 'VISIBLE' exprlist 'BANG'? NEWLINE ;
 
 assignment: identifier 'R' expr NEWLINE ;
 
-declaration: identifier 'HAS A' identifier init ;
+declaration: identifier 'HAS A' identifier init NEWLINE ;
 
-init: ('ITZ' expr | 'ITZ A' type | 'ITZ LIEK A' identifier)? NEWLINE ;
+init: ('ITZ' expr | 'ITZ A' type | 'ITZ LIEK A' identifier)? ;
 
 ifthenelse: 'O RLY?' NEWLINE 'YA RLY' NEWLINE block elseifcond* elsecond? 'OIC' NEWLINE ;
 
@@ -114,7 +114,7 @@ COMMENT
   : 'BTW' .*? NEWLINE -> skip ;
 
 MULTICOMMENT
-  : 'OBTW' .*? 'TLDR' NEWLINE -> skip ;
+  : 'OBTW' .*? 'TLDR' NEWLINE -> channel(HIDDEN) ;
 
 BANG: '!' ;
 
